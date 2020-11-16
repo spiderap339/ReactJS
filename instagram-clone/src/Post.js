@@ -16,7 +16,8 @@ function Post({ postId, user, username, caption, imageUrl }) {
                 .collection("comments")
                 .orderBy('timestamp', 'desc')
                 .onSnapshot((snapshot) => {
-                    setComments(snapshot.docs.map((doc) => doc.data()));                })
+                    setComments(snapshot.docs.map((doc) => doc.data()));                
+                })
         }
 
         return () => {
@@ -42,12 +43,13 @@ function Post({ postId, user, username, caption, imageUrl }) {
             
             {/* header -> avatar + username */}
             <div className="post__header">
-                <h3>{username}</h3>
-                {/* <Avatar 
-                        className="post__avatar"
+                
+                <Avatar 
+                    className="post__avatar"
                     alt="Anshuman"
-                    src="https://i.stack.imgur.com/xEeHc.jpg"
-                /> */}
+                    // src="https://i.stack.imgur.com/xEeHc.jpg"
+                />
+                <h3 className="post__headerName">{username}</h3>
             </div>
             
             {/* image */}

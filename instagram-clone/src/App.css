@@ -6,11 +6,13 @@
 .App {
   background-color: #FAFAFA;  
 }
+
 .app__posts {
   padding: 20px;
   display: flex;
   justify-content: center;
 }
+
 .app__header{
   position: sticky;
   top: 0;
@@ -28,6 +30,11 @@
   object-fit: content;
 }
 
+.app__headerInput {
+  height: 20px;
+  width: 300px;
+  margin-top: 6px;
+}
 .app__signup {
   display: flex;
   flex-direction: column;

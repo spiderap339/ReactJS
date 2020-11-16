@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
 }));
+
 function App() {
   // States for material ui
   const classes = useStyles(); 
@@ -112,10 +113,6 @@ function App() {
 
   return (
     <div className="App">
-    
-    
-    
-    
 
     {/* <ImageUpload username={user.displayName}/> */}
       {/* Using Modal for SignUp */}
@@ -204,7 +201,7 @@ function App() {
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           alt=""
         />
-
+        <input className="app__headerInput" placeholder="Search"/>
         {user ? (
           
           <Button onClick={() =>{
