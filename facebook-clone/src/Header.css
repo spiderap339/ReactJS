@@ -1,0 +1,86 @@
+.header {
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    background-color: #011B32;
+    justify-content: space-between; /*how much space should be there between elements*/
+    position: sticky;
+    top: 0;
+
+    /*In z-index element with more z-index appear over others */
+    z-index: 100; 
+    /* background-color: white; */
+    box-shadow: 0px 8px 8px -9px rgba(0, 0, 0, 0.75);
+}
+
+.header__left {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__input {
+    display: flex;
+    align-items: center; /* align element in center on vertical axis*/
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 50px;
+    border-radius: 100px;
+    background-color: white;
+
+}
+
+.header__left > img {
+    height: 35px;
+}
+
+.header__input > input {
+    border: none;
+    background-color: #eff2f5;
+    outline-width: 0;
+    /* height: 10px; */
+    margin-left:5px;
+    width: 250px;
+}
+
+.header__input__icon {
+    background-color: #eff2f5;
+
+}
+
+.header__center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.header__icons--active {
+    /* color:  #2e81f4; */
+    border-bottom: 4px solid white;
+}
+.header__icons:hover {
+    /* color: #2e81f4; */
+    border-bottom: 4px solid white;
+
+    /* background-color: #eff2f5; */
+}
+
+.header__icons {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 30px;
+    color: white;
+    /* margin: 30px; */
+}
+
+.header__info {
+    display: flex;
+    align-items: center;
+}
+
+.header__info > h4 {
+    margin-left: 15px;
+    margin-right: 10px;
+    color: white;
+    /* font-weight: 300; */
+    /* font-style: italic; */
+}

@@ -1,0 +1,19 @@
+.sidebarRow {
+    display: flex;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    width: 130px;
+    color: white;
+}
+
+.sidebarRow:hover {
+    background-color: #1877F2;
+    border-radius: 10px;
+}
+.sidebarRow__title {
+    margin-left: 10px;
+}

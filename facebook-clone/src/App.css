@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  /* background-color: #011B32; */
+}
+
+.app {
+  /* background-color: #011B32; */
+  height: 400vh;  
+  width: 218vh;
+  
+}
+
+.app__body {
+  display: flex;
+}

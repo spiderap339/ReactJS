@@ -1,0 +1,13 @@
+.login {
+    background-color: #F0F2F5;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.login > button:hover {
+    cursor: pointer;
+}
+
