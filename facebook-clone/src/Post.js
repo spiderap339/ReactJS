@@ -4,6 +4,7 @@ import Avatar from 'react-avatar';
 import {FaThumbsUp} from 'react-icons/fa';
 import {BiCommentDetail} from 'react-icons/bi';
 import {MdNearMe} from 'react-icons/md';
+import firebase from "firebase";
 
 export default function Post({profilePic, username, timestamp, 
 message, image }) {
@@ -18,7 +19,8 @@ message, image }) {
                 />
                 <div className="post__topInfo">
                     <h3>{username}</h3>
-                    <p>Timestamp...</p>
+                    
+                    {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
                 </div>
             </div>
 

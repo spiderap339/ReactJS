@@ -4,6 +4,7 @@ import Avatar from 'react-avatar';
 import {FaVideo, FaPhotoVideo} from 'react-icons/fa';
 import {BiHappyBeaming} from 'react-icons/bi';
 import { useStateValue } from './StateProvider';
+import firebase, {db} from './firebase';
 
 export default function MessageSender() {
     const [{user}, dispatch] = useStateValue();
@@ -13,8 +14,14 @@ export default function MessageSender() {
         e.preventDefault();
 
         // some database stuff
-
-
+        db.collection('posts').add({
+            message: input,
+            timestamp: '',
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: imageUrl,
+        })
+        
         setImageUrl('');
         setInput('');
     }

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StoryReel from './StoryReel.js';
 import './feed.css';
 import MessageSender from './MessageSender.js';
 import Post from './Post.js';
-
+import {db} from './firebase';
 export default function Feed() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        db.collection('posts').onSnapshot(snapshot => (
+            setPosts(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })))
+        ))
+    }, [])
     return (
 
         <div className="feed">
@@ -13,6 +20,16 @@ export default function Feed() {
             {/* MessageSender */}
             <MessageSender />
 
+            {posts.map((post) => (
+                <Post 
+                    key={post.id}
+                    profilePic={post.data.profilePic}
+                    message={post.data.message}
+                    timestamp={post.data.timestamp}
+                    username={post.data.username}
+                    image={post.data.image}
+                />
+            ))}
             <Post 
                 profilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc3I-WI5QwFKmwS2zx6n0gWB343KAk658_KA&usqp=CAU"
                 message="hellooo guys..."
