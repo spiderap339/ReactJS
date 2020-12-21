@@ -6,6 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
+import Avatar from "@material-ui/core/Avatar";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Profile from './Profile';
 
 function getModalStyle () {
   const top = 50; 
@@ -42,8 +45,6 @@ function App() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState(null); 
-
-
 
   // useEffect runs a piece of code based on a specific condition
   // useEffect(funtion(),   condition)
@@ -111,6 +112,9 @@ function App() {
     setPassword('')
   }
 
+  const handleProfile = () => {
+
+  }
   return (
     <div className="App">
 
@@ -196,52 +200,138 @@ function App() {
       </div>
       </Modal>
       
-      <div className="app__header">
-        <img className="app__headerImage"
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt=""
-        />
-        <input className="app__headerInput" placeholder="Search"/>
-        {user ? (
-          
-          <Button onClick={() =>{
-            
-            auth.signOut()
-            setEmail('')
-            setPassword('')
-          }
-          }>Logout</Button>
-        ) : (
-          <div className="app__loginContainer">
-            <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
-            <Button onClick={() => setOpen(true)}>Sign Up</Button>
-          </div>
-        )}
-      </div>
       
-      <div className="app__posts">
-        <div className="app__postsLeft">
-          {
-            posts.map(({ id, post })=> (
-              <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-            ))
-          }
-        </div>
-      </div>
       
-      {/* <InstagramEmbed
-        url='https://www.instagram.com/p/ByN_tLSnxjGkBOL7j1mzNFErvOY8xsh1CqUZ1U0/'
-      /> */}
+      
+      {
+        console.log(posts[0])
+      }
 
-      {user?.displayName ? (
+      <Switch>
+        <Route path="/" exact >
+          {/* <Profile posts={posts} user={user} /> */}
+
+          <div className="app__header">
+            {/* <img className="app__headerImage"
+              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+              alt=""
+            /> */}
+            <div className="app__headerProfile">
+              {user?.displayName ? (
+                
+                <a href="http://localhost:3000/profile">
+                  <Avatar />
+                </a>
+              
+              ) : (
+                <div>
+                
+                <h3>Not LoggedIn</h3>
+                </div>
+              )} 
+            </div>
+            
+            <input className="app__headerInput" placeholder="Search"/>
+            {user ? (
+              
+              <Button onClick={() =>{
+                
+                auth.signOut()
+                setEmail('')
+                setPassword('')
+              }
+              }>Logout</Button>
+            ) : (
+              <div className="app__loginContainer">
+                <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
+                <Button onClick={() => setOpen(true)}>Sign Up</Button>
+              </div>
+            )}
+          </div>
+
+
+          {user?.displayName ? (
         
-        <ImageUpload username={user.displayName}/>
-      ) : (
-        <div>
-        <h2>{user?.displayName}</h2>
-        <h3>Sorry you need to login to upload</h3>
+            <ImageUpload username={user.displayName}/>
+          ) : (
+            <div>
+            <h2>{user?.displayName}</h2>
+            {/* <h3>Sorry you need to login to upload</h3> */}
+            </div>
+          )} 
+          <div className="app__posts">
+            <div className="app__postsLeft">
+              {
+                posts.map(({ id, post })=> (
+                  <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+                ))
+              }
+            </div>
+          </div>
+          
+        </Route>
+
+        <Route path="/profile" exact>
+        <div className="app__header">
+          {/* <img className="app__headerImage"
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            alt=""
+          /> */}
+          <div className="app__headerProfile">
+            {user?.displayName ? (
+              
+              // <a href="http://localhost:3000/profile">
+              //   <Avatar />
+              // </a>
+
+              <a href="http://localhost:3000/">
+                Home
+              </a>
+            
+            ) : (
+              <div>
+              
+              <h3>Not LoggedIn</h3>
+              </div>
+            )} 
+          </div>
+          
+          <input className="app__headerInput" placeholder="Search"/>
+          {user ? (
+            
+            <Button onClick={() =>{
+              
+              auth.signOut()
+              setEmail('')
+              setPassword('')
+            }
+            }>Logout</Button>
+          ) : (
+            <div className="app__loginContainer">
+              <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
+              <Button onClick={() => setOpen(true)}>Sign Up</Button>
+            </div>
+          )}
         </div>
-      )} 
+
+          {
+            user?.displayName ? (
+              <Profile posts={posts} user={user} />
+            ) : (
+              <div>
+                <h1>User Not Logged In</h1>
+                <a href="http://localhost:3000/">
+                  <h2>Home</h2>
+                </a>
+              </div>
+              
+            )
+          }
+          
+        </Route>
+      </Switch>
+
+      
     </div>
   );
 }

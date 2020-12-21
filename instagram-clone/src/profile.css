@@ -1,0 +1,10 @@
+.profile {
+text-align: center;    
+
+}
+
+.profile__posts {
+    align-items: center;
+
+    margin-top: 40px;
+}

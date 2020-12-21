@@ -30,6 +30,9 @@
   object-fit: content;
 }
 
+.app__headerProfile {
+  cursor: pointer;
+}
 .app__headerInput {
   height: 20px;
   width: 300px;

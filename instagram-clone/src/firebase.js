@@ -1,15 +1,35 @@
 import firebase from "firebase";
 
+/*
+
+HOW TO SETUP FIREBASE DATABASE AFTER EVERY 30 DAYS
+
+posts =>                        
+        caption(string)            => comments => 
+        imageUrl(string)                        text(string)
+        timestamp(timestamp)                     username(string)
+        username(string)
+
+
+*/ 
+
+
+
+
+
+
 const firebaseApp = firebase.initializeApp({
     
-    apiKey: "AIzaSyD_-7DStjt45-uWmcECAe_qQHS_B-O6oR4",
-    authDomain: "instagram-clone-react-27219.firebaseapp.com",
-    databaseURL: "https://instagram-clone-react-27219.firebaseio.com",
-    projectId: "instagram-clone-react-27219",
-    storageBucket: "instagram-clone-react-27219.appspot.com",
-    messagingSenderId: "928113209949",
-    appId: "1:928113209949:web:286f6f03f880a94615d3b4",
-    measurementId: "G-P83X6YDCK5"
+
+    
+    apiKey: "AIzaSyCb-LcjA_WF1nwu2yjdpsCuwyL9d67LsYg",
+    authDomain: "instagram-clone-react1-7e964.firebaseapp.com",
+    projectId: "instagram-clone-react1-7e964",
+    storageBucket: "instagram-clone-react1-7e964.appspot.com",
+    messagingSenderId: "184641276251",
+    appId: "1:184641276251:web:3e32b3ed6eb1793017727e",
+    measurementId: "G-NSD2GL5HZ4"
+     
   
 });
 
@@ -18,3 +38,4 @@ const auth = firebase.auth(); // Access to authorization
 const storage = firebase.storage(); // Access to storage
 
 export { db, auth, storage };
+
