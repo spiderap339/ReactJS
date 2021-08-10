@@ -22,13 +22,13 @@ const firebaseApp = firebase.initializeApp({
     
 
     
-    apiKey: "AIzaSyCb-LcjA_WF1nwu2yjdpsCuwyL9d67LsYg",
-    authDomain: "instagram-clone-react1-7e964.firebaseapp.com",
-    projectId: "instagram-clone-react1-7e964",
-    storageBucket: "instagram-clone-react1-7e964.appspot.com",
-    messagingSenderId: "184641276251",
-    appId: "1:184641276251:web:3e32b3ed6eb1793017727e",
-    measurementId: "G-NSD2GL5HZ4"
+    apiKey: "AIzaSyC",
+    authDomain: "i,
+    projectId: "inact1-7e964",
+    storageBucket: "instagpot.com",
+    messagingSenderId: "186251",
+    appId: "1:1827e",
+    measurementId: "G-N"
      
   
 });
